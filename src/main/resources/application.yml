@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: cloud-messenger
+  datasource:
+    url: jdbc:mariadb://localhost:13306/sbapi
+    username: sbapi
+    password: 678678as
+    driver-class-name: org.mariadb.jdbc.Driver
+  security:
+    user:
+      name: test
+      password: test
+      roles: USER
