@@ -11,3 +11,6 @@ spring:
       name: test
       password: test
       roles: USER
+logging:
+  level:
+    root: info
