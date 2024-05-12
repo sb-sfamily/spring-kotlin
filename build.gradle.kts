@@ -1,3 +1,5 @@
+import Build_gradle.Versions.jspVersion
+import Build_gradle.Versions.myBatisVersion
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -14,6 +16,13 @@ java {
 	sourceCompatibility = JavaVersion.VERSION_17
 }
 
+
+object Versions {
+	const val myBatisVersion = "3.0.3"
+	const val jspVersion = "3.0.0"
+}
+
+
 repositories {
 	mavenCentral()
 }
@@ -26,11 +35,13 @@ dependencies {
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3")
-	runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
+	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:$myBatisVersion")
+	implementation("org.apache.tomcat.embed:tomcat-embed-jasper")
+	implementation("jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:$jspVersion")
+	implementation("org.mariadb.jdbc:mariadb-java-client")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
-	testImplementation("org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3")
+	testImplementation("org.mybatis.spring.boot:mybatis-spring-boot-starter-test:$myBatisVersion")
 	testImplementation("org.springframework.security:spring-security-test")
 }
 
