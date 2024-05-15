@@ -1,4 +1,13 @@
 package family.park.devops.cloud.messenger.repo
 
-class CustomerRepo {
+import family.park.devops.cloud.messenger.entity.CustomerShort
+import org.mybatis.spring.SqlSessionTemplate
+import org.springframework.stereotype.Repository
+
+@Repository
+class CustomerRepo(
+    private val sqlSessionTemplate: SqlSessionTemplate
+){
+    fun getMemeberBrief(memberId: Long) =
+        sqlSessionTemplate.selectOne<CustomerShort>("COMMON.selectMemberBrief",memberId)
 }
