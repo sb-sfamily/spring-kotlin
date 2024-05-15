@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <typeAliases>
+<!--        <typeAlias alias="string" type="java.lang.String"/>-->
+<!--        <typeAlias alias="map" type="java.util.HashMap"/>-->
+<!--        <typeAlias alias="list" type="java.util.ArrayList"/>-->
+        <typeAlias alias="customer" type="family.park.devops.cloud.messenger.entity.Customer"/>
+        <typeAlias alias="customerShort" type="family.park.devops.cloud.messenger.entity.CustomerShort"/>
+    </typeAliases>
+
+<!--    <typeHandlers>
+        <typeHandler handler="org.apache.ibatis.type.LocalDateTypeHandler" />
+        <typeHandler handler="org.apache.ibatis.type.LocalDateTimeTypeHandler" />
+    </typeHandlers>-->
+</configuration>
