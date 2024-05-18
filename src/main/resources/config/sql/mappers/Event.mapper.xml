@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="EVENT">
+<!--    <select id="selectMember" resultType="customer">-->
+<!--        select-->
+<!--            member_id-->
+<!--            , name-->
+<!--            , birth_date-->
+<!--            , email-->
+<!--            , password-->
+<!--            , join_date-->
+<!--            , create_dt-->
+<!--            , create_user-->
+<!--            , update_dt-->
+<!--            , update_user-->
+<!--        from member-->
+<!--        where member_id = #{value}-->
+<!--    </select>-->
+
+<!--    <insert id="insertMember" parameterType="customer">-->
+<!--        INSERT INTO member-->
+<!--        (-->
+<!--        NAME, surname, birth_date, email, PASSWORD-->
+<!--        , JOIN_date, create_dt, create_user-->
+<!--        )-->
+<!--        VALUES-->
+<!--        (-->
+<!--        #{name}, #{surname}, #{joinDate}, #{email}, #{password}-->
+<!--        ,#{joinDate} , #{createDt}, #{createUser}-->
+<!--        )-->
+<!--    </insert>-->
+    <select id="selectEvent" resultType="event">
+        SELECT
+            id,
+            title,
+            operator_id,
+            event_type,
+            reg_date,
+            from_dt,
+            to_dt,
+            description,
+            place_name,
+            place_addr,
+            create_dt,
+            update_dt,
+            create_user_id,
+            update_user_id
+        FROM
+            event
+        where id = #{value}
+    </select>
+
+
+    <select id="selectListEvents" resultType="event">
+        <bind name="searchValue" value="'%' + value + '%'" />
+        SELECT
+        id,
+        title,
+        operator_id,
+        event_type,
+        reg_date,
+        from_dt,
+        to_dt,
+        description,
+        place_name,
+        place_addr,
+        create_dt,
+        update_dt,
+        create_user_id,
+        update_user_id
+        FROM
+        event
+        where title like #{searchValue}
+        ;
+    </select>
+</mapper>

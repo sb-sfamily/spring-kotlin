@@ -12,6 +12,7 @@
 <!--        <typeAlias alias="map" type="java.util.HashMap"/>-->
 <!--        <typeAlias alias="list" type="java.util.ArrayList"/>-->
         <typeAlias alias="customer" type="family.park.devops.cloud.messenger.entity.Customer"/>
+        <typeAlias alias="event" type="family.park.devops.cloud.messenger.entity.Event"/>
         <typeAlias alias="customerShort" type="family.park.devops.cloud.messenger.entity.CustomerShort"/>
     </typeAliases>
 
