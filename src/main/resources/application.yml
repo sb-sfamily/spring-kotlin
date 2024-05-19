@@ -13,14 +13,10 @@ spring:
       name: test
       password: test
       roles: USER
-logging:
-  level:
-    root: info
-    jdbc.audit: error
 
-log4jdbc:
-  spylogdelegator:
-    name: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
-  dump:
-    sql:
-      maxlinelength: 0
+#log4jdbc:
+#  spylogdelegator:
+#    name: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
+#  dump:
+#    sql:
+#      maxlinelength: 0

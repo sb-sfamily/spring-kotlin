@@ -1,0 +1,20 @@
+<configuration scan="true" scanPeriod="30 seconds">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{mm:ss.SSS} %-5level %logger{36}.%M %line - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="jdbc.sqltiming" level="OFF" additivity="false"/>
+    <logger name="jdbc.resultsettable" level="OFF" additivity="false"/>
+    <logger name="jdbc.sqlonly" level="INFO" additivity="true"/>
+    <logger name="jdbc.audit" level="OFF" additivity="false"/>
+    <logger name="jdbc.resultset" level="OFF" additivity="false"/>
+    <logger name="jdbc.connection" level="OFF" additivity="false"/>
+    <logger name="log4jdbc.debug" level="OFF" additivity="false"/>
+    <logger name="family.park.devops.cloud.messenger" level="INFO" additivity="true"/>
+
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
