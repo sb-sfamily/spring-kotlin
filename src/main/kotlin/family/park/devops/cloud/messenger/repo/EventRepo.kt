@@ -1,7 +1,7 @@
 package family.park.devops.cloud.messenger.repo
 
-import family.park.devops.cloud.messenger.entity.CustomerShort
 import family.park.devops.cloud.messenger.entity.Event
+import family.park.devops.cloud.messenger.model.SearchEvent
 import org.mybatis.spring.SqlSessionTemplate
 import org.springframework.stereotype.Repository
 
@@ -12,6 +12,6 @@ class EventRepo(
     fun getEvent(id: Long) =
         sqlSessionTemplate.selectOne<Event>("EVENT.selectEvent",id)
 
-    fun getTable(title : String)
-    = sqlSessionTemplate.selectOne<Event>("EVENT.selectListEvents",title)
+    fun getListEvents(searchEvent : SearchEvent)
+    = sqlSessionTemplate.selectList<Event>("EVENT.selectListEvents",searchEvent)
 }

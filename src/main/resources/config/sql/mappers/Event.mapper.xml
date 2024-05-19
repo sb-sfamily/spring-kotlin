@@ -54,7 +54,6 @@
 
 
     <select id="selectListEvents" resultType="event">
-        <bind name="searchValue" value="'%' + value + '%'" />
         SELECT
         id,
         title,
@@ -72,7 +71,72 @@
         update_user_id
         FROM
         event
-        where title like #{searchValue}
-        ;
+        where title like CONCAT('%',CONCAT(#{title}, '%'))
+        and from_dt between str_to_date(#{fromFromDate},'%Y-%m-%d') and str_to_date(concat(#{fromToDate},'23:59:59'),'%Y-%m-%d %H:%i:%s')
     </select>
+
+
+    <select id="selectListEventsByStauts" resultType="event">
+    SELECT
+        id,
+        title,
+        operator_id,
+        event_type,
+        reg_date,
+        from_dt,
+        to_dt,
+        description,
+        place_name,
+        place_addr,
+        create_dt,
+        update_dt,
+        create_user_id,
+        update_user_id
+    FROM event
+    where 1 = 1
+        <if test="title != null and title != '' ">
+    AND title like CONCAT('%',CONCAT(#{title}, '%'))
+        </if>
+        <choose>
+            <when test="status == 'BEFORE'">
+    AND title like #{title}
+            </when>
+            <when test="status == 'ING'">
+    AND author_name like #{author.name}
+            </when>
+            <when test="status == 'AFTER'">
+    AND author_name like #{author.name}
+            </when>
+        </choose>
+    </select>
+
+    <insert id="insertEvent">
+        INSERT
+        INTO
+            sbapi.event
+        (title,
+         operator_id,
+         event_type,
+         reg_date,
+         from_dt,
+         to_dt,
+         DESCRIPTION,
+         place_name,
+         place_addr,
+         create_dt
+            ,
+         create_user_id)
+        VALUES (
+                   #{title},
+                   1,
+                   'A0001',
+                   CURDATE(),
+                   STR_TO_DATE('2024-06-05 09:00:00', '%Y-%m-%d %H:%i:%s'),
+                   STR_TO_DATE('2024-06-08 17:00:00', '%Y-%m-%d %H:%i:%s'),
+                   '순국열사의 뜻을 기립니다.',
+                   '성사체육공원',
+                   '성사동',
+                   CURTIME(),
+                   1)
+    </insert>
 </mapper>

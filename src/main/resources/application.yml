@@ -2,10 +2,12 @@ spring:
   application:
     name: cloud-messenger
   datasource:
-    url: jdbc:mariadb://localhost:13306/sbapi
+#    url: jdbc:mariadb://localhost:13306/sbapi
+    url: jdbc:log4jdbc:mariadb://localhost:13306/sbapi
     username: sbapi
     password: 678678as
-    driver-class-name: org.mariadb.jdbc.Driver
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+#    driver-class-name: org.mariadb.jdbc.Driver
   security:
     user:
       name: test
@@ -14,3 +16,11 @@ spring:
 logging:
   level:
     root: info
+    jdbc.audit: error
+
+log4jdbc:
+  spylogdelegator:
+    name: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
+  dump:
+    sql:
+      maxlinelength: 0
