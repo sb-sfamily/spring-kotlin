@@ -2,6 +2,7 @@ package family.park.devops.cloud.messenger.repo
 
 import family.park.devops.cloud.messenger.entity.Event
 import family.park.devops.cloud.messenger.model.EventTmp
+import family.park.devops.cloud.messenger.model.InsertEvent
 import family.park.devops.cloud.messenger.model.SearchEvent
 import org.mybatis.spring.SqlSessionTemplate
 import org.springframework.stereotype.Repository
@@ -16,7 +17,7 @@ class EventRepo(
     fun getListEvents(searchEvent : SearchEvent)
     = sqlSessionTemplate.selectList<Event>("EVENT.selectListEvents",searchEvent)
 
-    fun insertEvent(event: EventTmp) {
-        sqlSessionTemplate.insert("EVENT.insertEvent", event)
+    fun insertsEvents(event: InsertEvent) {
+        sqlSessionTemplate.insert("EVENT.insertingEvent", event)
     }
 }

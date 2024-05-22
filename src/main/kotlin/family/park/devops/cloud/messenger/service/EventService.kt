@@ -1,6 +1,6 @@
 package family.park.devops.cloud.messenger.service
 
-import family.park.devops.cloud.messenger.model.EventTmp
+import family.park.devops.cloud.messenger.model.InsertEvent
 import family.park.devops.cloud.messenger.model.SearchEvent
 import family.park.devops.cloud.messenger.repo.EventRepo
 import org.springframework.stereotype.Service
@@ -15,5 +15,5 @@ class EventService(
 
     fun getListEvents(searchEvent: SearchEvent) = eventRepo.getListEvents(searchEvent)
 
-    fun includeListEvent(eventTmp: EventTmp) = eventRepo.insertEvent(eventTmp)
+    fun insertListEvent(insertEvent: InsertEvent) = eventRepo.insertsEvents(insertEvent)
 }

@@ -110,7 +110,7 @@
         </choose>
     </select>
 
-    <insert id="insertEvent">
+    <insert id="insertingEvent">
         INSERT
         INTO
             event
@@ -127,15 +127,15 @@
          create_user_id)
         VALUES (
                    #{title},
-                   #{operator_id},
-                   #{event_type},
-                   #{reg_date},
-                   #{from_dt},
-                   #{to_dt},
+                   #{operatorId},
+                   #{eventType},
+                   str_to_date( #{regDate} ,'%Y-%m-%d' ),
+                   #{fromDt},
+                   #{toDt},
                    #{description},
-                   #{place_name},
-                   #{place_addr},
-                   #{create_dt},
+                   #{placeName},
+                   #{placeAddr},
+                   #{createDt},
                    1)
     </insert>
 </mapper>

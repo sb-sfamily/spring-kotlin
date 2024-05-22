@@ -11,6 +11,21 @@ data class SearchEvent(
     val stauts : String?, // 진행상태 ( before, ing, after)
 )
 
+data class InsertEvent(
+    var title : String,
+    var operatorId : Long,
+    var eventType : String,
+    var regDate: String = LocalDate.now().format(TimeFormat.DATETIME_PATTERN),
+    var fromDt: String,
+    var toDt: String,
+    var description: String,
+    var placeName : String,
+    var placeAddr : String,
+    var createDt : String = LocalDateTime.now().format(TimeFormat.DATE_PATTERN_FORMATTER),
+    var createUserId : Long
+
+)
+
 data class EventTmp (
     val id : Long?,
     var title : String,
