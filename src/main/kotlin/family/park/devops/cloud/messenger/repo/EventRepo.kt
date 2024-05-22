@@ -20,4 +20,8 @@ class EventRepo(
     fun insertsEvents(event: InsertEvent) {
         sqlSessionTemplate.insert("EVENT.insertingEvent", event)
     }
+
+    fun selectListEventsByStatus(searchEvent: SearchEvent){
+        sqlSessionTemplate.selectList<Event>("EVENT.selectListEventsByStauts",searchEvent)
+    }
 }

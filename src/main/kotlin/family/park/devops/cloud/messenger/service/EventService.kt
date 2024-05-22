@@ -1,5 +1,6 @@
 package family.park.devops.cloud.messenger.service
 
+import family.park.devops.cloud.messenger.model.EventTmp
 import family.park.devops.cloud.messenger.model.InsertEvent
 import family.park.devops.cloud.messenger.model.SearchEvent
 import family.park.devops.cloud.messenger.repo.EventRepo
@@ -16,4 +17,7 @@ class EventService(
     fun getListEvents(searchEvent: SearchEvent) = eventRepo.getListEvents(searchEvent)
 
     fun insertListEvent(insertEvent: InsertEvent) = eventRepo.insertsEvents(insertEvent)
+
+    fun selectListEventsByStatus(searchEvent: SearchEvent) = eventRepo.selectListEventsByStatus(searchEvent)
+
 }
