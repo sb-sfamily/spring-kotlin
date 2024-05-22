@@ -113,30 +113,29 @@
     <insert id="insertEvent">
         INSERT
         INTO
-            sbapi.event
+            event
         (title,
          operator_id,
          event_type,
          reg_date,
          from_dt,
          to_dt,
-         DESCRIPTION,
+         description,
          place_name,
          place_addr,
-         create_dt
-            ,
+         create_dt,
          create_user_id)
         VALUES (
                    #{title},
-                   1,
-                   'A0001',
-                   CURDATE(),
-                   STR_TO_DATE('2024-06-05 09:00:00', '%Y-%m-%d %H:%i:%s'),
-                   STR_TO_DATE('2024-06-08 17:00:00', '%Y-%m-%d %H:%i:%s'),
-                   '순국열사의 뜻을 기립니다.',
-                   '성사체육공원',
-                   '성사동',
-                   CURTIME(),
+                   #{operator_id},
+                   #{event_type},
+                   #{reg_date},
+                   #{from_dt},
+                   #{to_dt},
+                   #{description},
+                   #{place_name},
+                   #{place_addr},
+                   #{create_dt},
                    1)
     </insert>
 </mapper>

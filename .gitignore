@@ -38,3 +38,6 @@ out/
 
 ### Kotlin ###
 .kotlin
+
+#school
+src/main/webapp/WEB-INF/jsp/member/school

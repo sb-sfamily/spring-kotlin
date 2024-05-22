@@ -1,5 +1,6 @@
 package family.park.devops.cloud.messenger.web
 
+import family.park.devops.cloud.messenger.model.EventTmp
 import family.park.devops.cloud.messenger.model.SearchEvent
 import family.park.devops.cloud.messenger.service.EventService
 import org.springframework.web.bind.annotation.GetMapping
@@ -19,4 +20,7 @@ class EventController(private val eventService: EventService) {
 
     @PostMapping("/list")
     fun getListEvents(@RequestBody searchEvent: SearchEvent) = eventService.getListEvents(searchEvent)
+
+    @PostMapping("/insert")
+    fun insertListEvent(@RequestBody insertEvents : EventTmp) = eventService.includeListEvent(insertEvents)
 }
