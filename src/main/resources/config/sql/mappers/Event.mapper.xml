@@ -98,13 +98,13 @@
     AND title like CONCAT('%',CONCAT(#{title}, '%'))
         </if>
         <choose>
-            <when test="status == 'BEFORE'">
+            <when test="statusOfEvent == 'BEFORE'">
     AND title like #{title}
             </when>
-            <when test="status == 'ING'">
+            <when test="statusOfEvent == 'ING'">
     AND author_name like #{author.name}
             </when>
-            <when test="status == 'AFTER'">
+            <when test="statusOfEvent == 'AFTER'">
     AND author_name like #{author.name}
             </when>
         </choose>

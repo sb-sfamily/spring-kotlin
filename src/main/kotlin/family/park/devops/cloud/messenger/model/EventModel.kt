@@ -8,7 +8,7 @@ data class SearchEvent(
     val title : String?,
     val fromFromDate : String?,
     val fromToDate : String?,
-    val stauts : String?, // 진행상태 ( before, ing, after)
+    val statusOfEvent : String?// 진행상태 ( before, ing, after)
 )
 
 data class InsertEvent(
