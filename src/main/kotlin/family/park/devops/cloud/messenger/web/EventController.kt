@@ -2,8 +2,9 @@ package family.park.devops.cloud.messenger.web
 
 import family.park.devops.cloud.messenger.model.InsertEvent
 import family.park.devops.cloud.messenger.model.SearchEvent
-import family.park.devops.cloud.messenger.model.deleteEvents
+import family.park.devops.cloud.messenger.model.UpdateEvent
 import family.park.devops.cloud.messenger.service.EventService
+import org.apache.ibatis.annotations.Update
 import org.springframework.web.bind.annotation.*
 
 
@@ -24,5 +25,9 @@ class EventController(private val eventService: EventService) {
 
     @DeleteMapping("/{id}")
     fun deleteEvent(@PathVariable id: Long) = eventService.deleteEvent(id)
+
+
+    @PostMapping("/update")
+    fun updateEvents(@RequestBody updateEVent: UpdateEvent) = eventService.updatesEvent(updateEVent)
 
 }

@@ -143,4 +143,24 @@
         DELETE FROM event
         WHERE id = #{id}
     </delete>
+
+
+    <update id="updateEvent">
+        UPDATE event
+        SET title=#{title},
+            operator_id=#{operator_id},
+            event_type=#{event_type},
+            reg_date=#{reg_date},
+            from_dt=#{from_dt},
+            to_dt=#{to_dt},
+            description=#{description},
+            place_name=#{place_name},
+            place_addr=#{place_addr},
+            create_dt='',
+            update_dt=current_timestamp(),
+            create_user_id=0,
+            update_user_id=#{update_user_id},
+            status_of_event=NULL
+        WHERE id=#{id};
+    </update>
 </mapper>

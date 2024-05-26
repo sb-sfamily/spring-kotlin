@@ -15,8 +15,21 @@ data class SearchEvent(
 )
 
 
-data class deleteEvents(
-    val title : String?
+data class UpdateEvent(
+    var id: Long,
+    var title: String,
+    var operator_id : Long,
+    var event_type : String,
+    @DateTimeFormat
+    var from_dt : LocalDateTime,
+    @DateTimeFormat
+    var to_dt : LocalDateTime,
+    var description : String,
+    var place_name : String,
+    var place_addr : String,
+    @DateTimeFormat
+    var update_dt : LocalDateTime = LocalDateTime.now(),
+    var update_user_id : Long
 )
 
 
