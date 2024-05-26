@@ -138,4 +138,9 @@
                    #{createDt},
                    1)
     </insert>
+
+    <delete id="deleteEvent">
+        DELETE FROM event
+        WHERE id = #{id}
+    </delete>
 </mapper>

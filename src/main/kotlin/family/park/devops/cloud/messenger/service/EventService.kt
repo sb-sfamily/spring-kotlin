@@ -2,6 +2,7 @@ package family.park.devops.cloud.messenger.service
 
 import family.park.devops.cloud.messenger.model.InsertEvent
 import family.park.devops.cloud.messenger.model.SearchEvent
+import family.park.devops.cloud.messenger.model.deleteEvents
 import family.park.devops.cloud.messenger.repo.EventRepo
 import org.springframework.stereotype.Service
 
@@ -18,5 +19,7 @@ class EventService(
     fun insertListEvent(insertEvent: InsertEvent) = eventRepo.insertsEvents(insertEvent)
 
     fun selectListEventsByStatus(searchEvent: SearchEvent) = eventRepo.selectListEventsByStatus(searchEvent)
+
+    fun deleteEvent(id : Long)= eventRepo.deleteEvent(id)
 
 }

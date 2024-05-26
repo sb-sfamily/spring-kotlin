@@ -14,6 +14,12 @@ data class SearchEvent(
     val statusOfEvent : String?// 진행상태 ( before, ing, after)
 )
 
+
+data class deleteEvents(
+    val title : String?
+)
+
+
 data class InsertEvent(
     var title : String,
     var operatorId : Long,

@@ -3,6 +3,7 @@ package family.park.devops.cloud.messenger.repo
 import family.park.devops.cloud.messenger.entity.Event
 import family.park.devops.cloud.messenger.model.InsertEvent
 import family.park.devops.cloud.messenger.model.SearchEvent
+import family.park.devops.cloud.messenger.model.deleteEvents
 import org.mybatis.spring.SqlSessionTemplate
 import org.springframework.stereotype.Repository
 
@@ -21,4 +22,7 @@ class EventRepo(
 
     fun selectListEventsByStatus(searchEvent: SearchEvent) =
         sqlSessionTemplate.selectList<Event>("EVENT.selectListEventsByStauts", searchEvent)
+
+    fun deleteEvent(id : Long)=
+        sqlSessionTemplate.selectOne<Event>("EVENT.deleteEvent", id)
 }

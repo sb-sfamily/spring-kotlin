@@ -2,6 +2,7 @@ package family.park.devops.cloud.messenger.web
 
 import family.park.devops.cloud.messenger.model.InsertEvent
 import family.park.devops.cloud.messenger.model.SearchEvent
+import family.park.devops.cloud.messenger.model.deleteEvents
 import family.park.devops.cloud.messenger.service.EventService
 import org.springframework.web.bind.annotation.*
 
@@ -20,5 +21,8 @@ class EventController(private val eventService: EventService) {
 
     @GetMapping("/status")
     fun selectListEventsByStatus(@RequestBody searchEvent: SearchEvent) = eventService.selectListEventsByStatus(searchEvent)
+
+    @DeleteMapping("/{id}")
+    fun deleteEvent(@PathVariable id: Long) = eventService.deleteEvent(id)
 
 }
