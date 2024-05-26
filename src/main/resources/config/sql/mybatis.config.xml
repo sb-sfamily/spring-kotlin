@@ -16,8 +16,9 @@
         <typeAlias alias="customerShort" type="family.park.devops.cloud.messenger.entity.CustomerShort"/>
     </typeAliases>
 
-<!--    <typeHandlers>
-        <typeHandler handler="org.apache.ibatis.type.LocalDateTypeHandler" />
+    <typeHandlers>
         <typeHandler handler="org.apache.ibatis.type.LocalDateTimeTypeHandler" />
-    </typeHandlers>-->
+        <typeHandler handler="org.apache.ibatis.type.LocalDateTypeHandler" />
+        <typeHandler handler="org.apache.ibatis.type.LocalTimeTypeHandler" />
+    </typeHandlers>
 </configuration>

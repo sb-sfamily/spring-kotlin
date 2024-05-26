@@ -36,6 +36,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:$myBatisVersion")
+	implementation("org.mybatis:mybatis-typehandlers-jsr310:1.0.2")
 	implementation("org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16")
 	implementation("org.apache.tomcat.embed:tomcat-embed-jasper")
 	implementation("jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:$jspVersion")

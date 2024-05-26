@@ -72,7 +72,7 @@
         FROM
         event
         where title like CONCAT('%',CONCAT(#{title}, '%'))
-        and from_dt between str_to_date(#{fromFromDate},'%Y-%m-%d') and str_to_date(concat(#{fromToDate},'23:59:59'),'%Y-%m-%d %H:%i:%s')
+        and from_dt between #{fromFromDate} and #{fromToDate}
     </select>
 
 
@@ -95,17 +95,17 @@
     FROM event
     where 1 = 1
         <if test="title != null and title != '' ">
-    AND title like CONCAT('%',CONCAT(#{title}, '%'))
+    AND title like CONCAT('%',#{title}, '%')
         </if>
         <choose>
             <when test="statusOfEvent == 'BEFORE'">
-    AND title like #{title}
+    AND from_dt > current_timestamp()
             </when>
             <when test="statusOfEvent == 'ING'">
-    AND author_name like #{author.name}
+    AND current_timestamp() between from_dt and to_dt
             </when>
             <when test="statusOfEvent == 'AFTER'">
-    AND author_name like #{author.name}
+    AND current_timestamp() > to_dt
             </when>
         </choose>
     </select>
@@ -129,7 +129,7 @@
                    #{title},
                    #{operatorId},
                    #{eventType},
-                   str_to_date( #{regDate} ,'%Y-%m-%d' ),
+                   #{regDate} ,
                    #{fromDt},
                    #{toDt},
                    #{description},

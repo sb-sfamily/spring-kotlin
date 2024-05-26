@@ -9,18 +9,16 @@ import org.springframework.stereotype.Repository
 @Repository
 class EventRepo(
     private val sqlSessionTemplate: SqlSessionTemplate
-){
+) {
     fun getEvent(id: Long) =
-        sqlSessionTemplate.selectOne<Event>("EVENT.selectEvent",id)
+        sqlSessionTemplate.selectOne<Event>("EVENT.selectEvent", id)
 
-    fun getListEvents(searchEvent : SearchEvent)
-    = sqlSessionTemplate.selectList<Event>("EVENT.selectListEvents",searchEvent)
+    fun getListEvents(searchEvent: SearchEvent) =
+        sqlSessionTemplate.selectList<Event>("EVENT.selectListEvents", searchEvent)
 
-    fun insertsEvents(event: InsertEvent) {
-        sqlSessionTemplate.insert("EVENT.insertingEvent", event)
-    }
+    fun insertsEvents(event: InsertEvent) = sqlSessionTemplate.insert("EVENT.insertingEvent", event)
 
-    fun selectListEventsByStatus(searchEvent: SearchEvent){
-        sqlSessionTemplate.selectList<Event>("EVENT.selectListEventsByStauts",searchEvent)
-    }
+
+    fun selectListEventsByStatus(searchEvent: SearchEvent) =
+        sqlSessionTemplate.selectList<Event>("EVENT.selectListEventsByStauts", searchEvent)
 }

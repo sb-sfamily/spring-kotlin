@@ -12,7 +12,6 @@ class EventController(private val eventService: EventService) {
     @GetMapping("/{id}")
     fun getEvent(@PathVariable id: Long) = eventService.getEvent(id)
 
-
     @PostMapping("/list")
     fun getListEvents(@RequestBody searchEvent: SearchEvent) = eventService.getListEvents(searchEvent)
 
