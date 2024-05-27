@@ -27,10 +27,3 @@ data class Event(
     var createUserId : Long,
     var updateUserId : Long?
 )
-
-
-data class ShortMember(
-    val MemberId : Int,
-    var name : String,
-    var age : Int
-)

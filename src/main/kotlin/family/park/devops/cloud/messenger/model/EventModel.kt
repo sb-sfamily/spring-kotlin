@@ -1,15 +1,18 @@
 package family.park.devops.cloud.messenger.model
 
+import com.fasterxml.jackson.annotation.JsonFormat
 import family.park.devops.cloud.messenger.annotation.DateFormat
 import family.park.devops.cloud.messenger.annotation.DateTimeFormat
+import family.park.devops.cloud.messenger.consts.MessegnerDateFormat.DATE
+import family.park.devops.cloud.messenger.consts.MessegnerDateFormat.DATETIME
 import java.time.LocalDate
 import java.time.LocalDateTime
 
 data class SearchEvent(
     val title : String?,
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
     val fromFromDate : LocalDateTime?,
-    @DateTimeFormat
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
     val fromToDate : LocalDateTime?,
     val statusOfEvent : String?// 진행상태 ( before, ing, after)
 )
@@ -18,18 +21,18 @@ data class SearchEvent(
 data class UpdateEvent(
     var id: Long,
     var title: String,
-    var operator_id : Long,
-    var event_type : String,
-    @DateTimeFormat
-    var from_dt : LocalDateTime,
-    @DateTimeFormat
-    var to_dt : LocalDateTime,
+    var operatorId : Long,
+    var eventType : String,
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
+    var fromDt : LocalDateTime,
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
+    var toDt : LocalDateTime,
     var description : String,
-    var place_name : String,
-    var place_addr : String,
-    @DateTimeFormat
-    var update_dt : LocalDateTime = LocalDateTime.now(),
-    var update_user_id : Long
+    var placeName : String,
+    var placeAddr : String,
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
+    var updateDt : LocalDateTime = LocalDateTime.now(),
+    var updateUserId : Long
 )
 
 
@@ -49,5 +52,4 @@ data class InsertEvent(
     @DateTimeFormat
     var createDt : LocalDateTime = LocalDateTime.now(),
     var createUserId : Long
-
 )
