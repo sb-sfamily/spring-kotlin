@@ -1,7 +1,8 @@
 package family.park.devops.cloud.messenger.entity
 
-import family.park.devops.cloud.messenger.annotation.DateFormat
-import family.park.devops.cloud.messenger.annotation.DateTimeFormat
+import com.fasterxml.jackson.annotation.JsonFormat
+import family.park.devops.cloud.messenger.consts.MessegnerDateFormat.DATE
+import family.park.devops.cloud.messenger.consts.MessegnerDateFormat.DATETIME
 import java.time.LocalDate
 import java.time.LocalDateTime
 
@@ -11,18 +12,18 @@ data class Event(
     var title : String,
     var operatorId : Long,
     var eventType : String,
-    @DateFormat
-    var regDate: LocalDate = LocalDate.now(),
-    @DateTimeFormat
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATE)
+    var regDate: LocalDate,
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
     var fromDt: LocalDateTime,
-    @DateTimeFormat
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
     var toDt: LocalDateTime,
     var description: String,
     var placeName : String,
     var placeAddr : String,
-    @DateTimeFormat
-    var createDt : LocalDateTime = LocalDateTime.now(),
-    @DateTimeFormat
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
+    var createDt : LocalDateTime,
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
     var updateDt : LocalDateTime?,
     var createUserId : Long,
     var updateUserId : Long?

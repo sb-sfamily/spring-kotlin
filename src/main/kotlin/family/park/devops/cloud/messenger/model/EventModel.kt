@@ -1,8 +1,6 @@
 package family.park.devops.cloud.messenger.model
 
 import com.fasterxml.jackson.annotation.JsonFormat
-import family.park.devops.cloud.messenger.annotation.DateFormat
-import family.park.devops.cloud.messenger.annotation.DateTimeFormat
 import family.park.devops.cloud.messenger.consts.MessegnerDateFormat.DATE
 import family.park.devops.cloud.messenger.consts.MessegnerDateFormat.DATETIME
 import java.time.LocalDate
@@ -31,7 +29,7 @@ data class UpdateEvent(
     var placeName : String,
     var placeAddr : String,
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
-    var updateDt : LocalDateTime = LocalDateTime.now(),
+    var updateDt : LocalDateTime,
     var updateUserId : Long
 )
 
@@ -40,16 +38,16 @@ data class InsertEvent(
     var title : String,
     var operatorId : Long,
     var eventType : String,
-    @DateFormat
-    var regDate: LocalDate = LocalDate.now(),
-    @DateTimeFormat
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
+    var regDate: LocalDateTime?,
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
     var fromDt: LocalDateTime,
-    @DateTimeFormat
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
     var toDt: LocalDateTime,
     var description: String,
     var placeName : String,
     var placeAddr : String,
-    @DateTimeFormat
-    var createDt : LocalDateTime = LocalDateTime.now(),
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
+    var createDt : LocalDateTime,
     var createUserId : Long
 )
