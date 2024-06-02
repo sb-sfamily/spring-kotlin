@@ -39,4 +39,19 @@
         from member
         where member_id = #{value}
     </select>
+
+
+    <insert id="insertMember">
+        INSERT INTO member
+        (name,
+         surname,
+         birth_date,
+         email,
+         password,
+         join_date,
+         create_dt,
+         create_user
+         )
+        VALUES(#{name}, #{surname}, #{birthDate}, #{email}, #{password}, #{joinDate}, #{createDt}, #{createUser});
+    </insert>
 </mapper>
