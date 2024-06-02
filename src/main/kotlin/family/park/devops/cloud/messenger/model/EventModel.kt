@@ -1,9 +1,7 @@
 package family.park.devops.cloud.messenger.model
 
 import com.fasterxml.jackson.annotation.JsonFormat
-import family.park.devops.cloud.messenger.consts.MessegnerDateFormat.DATE
 import family.park.devops.cloud.messenger.consts.MessegnerDateFormat.DATETIME
-import java.time.LocalDate
 import java.time.LocalDateTime
 
 data class SearchEvent(

@@ -3,34 +3,34 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="EVENT">
-<!--    <select id="selectMember" resultType="customer">-->
-<!--        select-->
-<!--            member_id-->
-<!--            , name-->
-<!--            , birth_date-->
-<!--            , email-->
-<!--            , password-->
-<!--            , join_date-->
-<!--            , create_dt-->
-<!--            , create_user-->
-<!--            , update_dt-->
-<!--            , update_user-->
-<!--        from member-->
-<!--        where member_id = #{value}-->
-<!--    </select>-->
+    <!--    <select id="selectMember" resultType="customer">-->
+    <!--        select-->
+    <!--            member_id-->
+    <!--            , name-->
+    <!--            , birth_date-->
+    <!--            , email-->
+    <!--            , password-->
+    <!--            , join_date-->
+    <!--            , create_dt-->
+    <!--            , create_user-->
+    <!--            , update_dt-->
+    <!--            , update_user-->
+    <!--        from member-->
+    <!--        where member_id = #{value}-->
+    <!--    </select>-->
 
-<!--    <insert id="insertMember" parameterType="customer">-->
-<!--        INSERT INTO member-->
-<!--        (-->
-<!--        NAME, surname, birth_date, email, PASSWORD-->
-<!--        , JOIN_date, create_dt, create_user-->
-<!--        )-->
-<!--        VALUES-->
-<!--        (-->
-<!--        #{name}, #{surname}, #{joinDate}, #{email}, #{password}-->
-<!--        ,#{joinDate} , #{createDt}, #{createUser}-->
-<!--        )-->
-<!--    </insert>-->
+    <!--    <insert id="insertMember" parameterType="customer">-->
+    <!--        INSERT INTO member-->
+    <!--        (-->
+    <!--        NAME, surname, birth_date, email, PASSWORD-->
+    <!--        , JOIN_date, create_dt, create_user-->
+    <!--        )-->
+    <!--        VALUES-->
+    <!--        (-->
+    <!--        #{name}, #{surname}, #{joinDate}, #{email}, #{password}-->
+    <!--        ,#{joinDate} , #{createDt}, #{createUser}-->
+    <!--        )-->
+    <!--    </insert>-->
     <select id="selectEvent" resultType="event">
         SELECT
             id,
@@ -55,29 +55,29 @@
 
     <select id="selectListEvents" resultType="event">
         SELECT
-        id,
-        title,
-        operator_id,
-        event_type,
-        reg_date,
-        from_dt,
-        to_dt,
-        description,
-        place_name,
-        place_addr,
-        create_dt,
-        update_dt,
-        create_user_id,
-        update_user_id
+            id,
+            title,
+            operator_id,
+            event_type,
+            reg_date,
+            from_dt,
+            to_dt,
+            description,
+            place_name,
+            place_addr,
+            create_dt,
+            update_dt,
+            create_user_id,
+            update_user_id
         FROM
-        event
+            event
         where title like CONCAT('%',CONCAT(#{title}, '%'))
-        and from_dt between #{fromFromDate} and #{fromToDate}
+          and from_dt between #{fromFromDate} and #{fromToDate}
     </select>
 
 
     <select id="selectListEventsByStauts" resultType="event">
-    SELECT
+        SELECT
         id,
         title,
         operator_id,
@@ -92,20 +92,20 @@
         update_dt,
         create_user_id,
         update_user_id
-    FROM event
-    where 1 = 1
+        FROM event
+        where 1 = 1
         <if test="title != null and title != '' ">
-    AND title like CONCAT('%',#{title}, '%')
+            AND title like CONCAT('%',#{title}, '%')
         </if>
         <choose>
             <when test="statusOfEvent == 'BEFORE'">
-    AND from_dt > current_timestamp()
+                AND from_dt > current_timestamp()
             </when>
             <when test="statusOfEvent == 'ING'">
-    AND current_timestamp() between from_dt and to_dt
+                AND current_timestamp() between from_dt and to_dt
             </when>
             <when test="statusOfEvent == 'AFTER'">
-    AND current_timestamp() > to_dt
+                AND current_timestamp() > to_dt
             </when>
         </choose>
     </select>
