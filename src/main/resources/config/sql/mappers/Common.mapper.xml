@@ -55,7 +55,7 @@
             create_user,
             update_user
         FROM member
-        WHERE member_id = {memberId}
+        WHERE member_id = #{memberId}
     </select>
 
 

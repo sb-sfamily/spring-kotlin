@@ -18,6 +18,6 @@ class CustomersRepo(
     fun insertCustomer(insertMember: CustomInsert)=
         sqlSessionTemplate.insert("COMMON.insertMember",insertMember)
 
-    fun searchMemeberById(searchMember: SearchMember)=
-        sqlSessionTemplate.selectOne<Customer>("COMMON.selectMemberInfo", searchMember)
+    fun searchMemeberById(id : Long)=
+        sqlSessionTemplate.selectOne<Customer>("COMMON.selectMemberInfo", id)
 }

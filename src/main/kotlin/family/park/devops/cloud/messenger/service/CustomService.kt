@@ -13,6 +13,6 @@ class CustomService(
     fun insertingMember(customerInsert: CustomInsert)=
         customrepo.insertCustomer(customerInsert)
 
-    fun searchMember( searchMember : SearchMember)=
-        customrepo.searchMemeberById(searchMember)
+    fun searchMember( id : Long)=
+        customrepo.searchMemeberById(id)
 }

@@ -17,6 +17,6 @@ class MemberController(private val customService: CustomService) {
     @PostMapping("/insert")
     fun insertMember(@RequestBody insertingMembers: CustomInsert)=customService.insertingMember(insertingMembers)
 
-    @PostMapping("/info")
-    fun searchingMember(@RequestBody searchMember : SearchMember) = customService.searchMember(searchMember)
+    @GetMapping("/{id}")
+    fun searchingMember(@PathVariable id : Long) = customService.searchMember(id)
 }
