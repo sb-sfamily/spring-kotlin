@@ -18,5 +18,8 @@ data class CustomInsert(
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
     var createDt : LocalDateTime,
     var createUser : Long
+)
 
+data class SearchMember(
+    var member_id : Long
 )

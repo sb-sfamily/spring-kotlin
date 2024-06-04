@@ -41,6 +41,24 @@
     </select>
 
 
+
+    <select id="selectMemberInfo" resultType="Customer">
+        SELECT
+            member_id,
+            name,
+            surname,
+            birth_date,
+            email, password,
+            join_date,
+            create_dt,
+            update_dt,
+            create_user,
+            update_user
+        FROM member
+        WHERE member_id = {memberId}
+    </select>
+
+
     <insert id="insertMember">
         INSERT INTO member
         (name,

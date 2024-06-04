@@ -1,6 +1,6 @@
 package family.park.devops.cloud.messenger
 
-import family.park.devops.cloud.messenger.repo.CustomerRepo
+import family.park.devops.cloud.messenger.repo.CustomersRepo
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.ApplicationArguments
@@ -13,7 +13,7 @@ class CloudMessengerApplication : ApplicationRunner {
 	private val logger = LoggerFactory.getLogger(CloudMessengerApplication::class.java)
 
 	@Autowired
-	lateinit var customerRepo : CustomerRepo
+	lateinit var customerRepo : CustomersRepo
 	override fun run(args: ApplicationArguments?) {
 		logger.info( customerRepo.getMemeberBrief(3L).toString() )
 	}
