@@ -20,6 +20,16 @@ data class CustomInsert(
     var createUser : Long
 )
 
-data class SearchMember(
-    var member_id : Long
+data class UpdatingMember(
+    var name : String,
+    var surname : String,
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATE)
+    var birthDate : LocalDate,
+    var email : String,
+    var password : String,
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
+    var updateDt : LocalDateTime,
+    var updateUser : Long,
+    var memberId : Long
 )
+

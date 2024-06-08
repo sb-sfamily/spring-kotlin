@@ -1,7 +1,7 @@
 package family.park.devops.cloud.messenger.service
 
 import family.park.devops.cloud.messenger.model.CustomInsert
-import family.park.devops.cloud.messenger.model.SearchMember
+import family.park.devops.cloud.messenger.model.UpdatingMember
 import family.park.devops.cloud.messenger.repo.CustomersRepo
 import org.springframework.stereotype.Service
 
@@ -18,4 +18,7 @@ class CustomService(
 
     fun deleteMember(id:Long)=
         customrepo.deleteById(id)
+
+    fun updateMember(updateMember: UpdatingMember)=
+        customrepo.updateMemberById(updateMember)
 }

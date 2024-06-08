@@ -1,8 +1,8 @@
 package family.park.devops.cloud.messenger.repo
 
 import family.park.devops.cloud.messenger.entity.Customer
-import family.park.devops.cloud.messenger.entity.CustomerShort
 import family.park.devops.cloud.messenger.model.CustomInsert
+import family.park.devops.cloud.messenger.model.UpdatingMember
 import org.mybatis.spring.SqlSessionTemplate
 import org.springframework.stereotype.Repository
 
@@ -18,4 +18,7 @@ class CustomersRepo(
 
     fun deleteById(id: Long)=
         sqlSessionTemplate.selectOne<Customer>("COMMON.deleteMember", id)
+
+    fun updateMemberById( updateMember : UpdatingMember)=
+        sqlSessionTemplate.update("COMMON.updateMember",updateMember)
 }

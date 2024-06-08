@@ -78,4 +78,17 @@
         DELETE FROM member
         WHERE member_id=#{id};
     </delete>
+
+
+    <update id="updateMember">
+        UPDATE member
+        SET name=#{name},
+            surname=#{surname},
+            birth_date=#{birthDate},
+            email=#{email},
+            password=#{password},
+            update_dt=#{updateDt},
+            update_user=#{updateUser}
+        WHERE member_id=#{memberId};
+    </update>
 </mapper>
