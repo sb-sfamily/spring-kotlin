@@ -72,4 +72,10 @@
          )
         VALUES(#{name}, #{surname}, #{birthDate}, #{email}, #{password}, #{joinDate}, #{createDt}, #{createUser});
     </insert>
+
+
+    <delete id="deleteMember">
+        DELETE FROM member
+        WHERE member_id=#{id};
+    </delete>
 </mapper>

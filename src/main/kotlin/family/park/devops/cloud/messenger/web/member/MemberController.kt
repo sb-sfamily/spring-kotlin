@@ -3,6 +3,7 @@ package family.park.devops.cloud.messenger.web.member
 import family.park.devops.cloud.messenger.model.CustomInsert
 import family.park.devops.cloud.messenger.model.SearchMember
 import family.park.devops.cloud.messenger.service.CustomService
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -19,4 +20,7 @@ class MemberController(private val customService: CustomService) {
 
     @GetMapping("/{id}")
     fun searchingMember(@PathVariable id : Long) = customService.searchMember(id)
+
+    @DeleteMapping("/{id}")
+    fun deleteMember(@PathVariable id : Long) = customService.deleteMember(id)
 }

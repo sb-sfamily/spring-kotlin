@@ -15,7 +15,7 @@ class CloudMessengerApplication : ApplicationRunner {
 	@Autowired
 	lateinit var customerRepo : CustomersRepo
 	override fun run(args: ApplicationArguments?) {
-		logger.info( customerRepo.getMemeberBrief(3L).toString() )
+		//logger.info( customerRepo.getMemeberBrief(3L).toString() )
 	}
 
 }

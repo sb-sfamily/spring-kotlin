@@ -15,4 +15,7 @@ class CustomService(
 
     fun searchMember( id : Long)=
         customrepo.searchMemeberById(id)
+
+    fun deleteMember(id:Long)=
+        customrepo.deleteById(id)
 }
