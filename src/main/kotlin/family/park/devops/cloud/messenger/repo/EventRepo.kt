@@ -1,6 +1,7 @@
 package family.park.devops.cloud.messenger.repo
 
 import family.park.devops.cloud.messenger.entity.Event
+import family.park.devops.cloud.messenger.entity.ExecutingEvent
 import family.park.devops.cloud.messenger.model.InsertEvent
 import family.park.devops.cloud.messenger.model.SearchEvent
 import family.park.devops.cloud.messenger.model.UpdateEvent
@@ -21,7 +22,7 @@ class EventRepo(
 
 
     fun selectListEventsByStatus(searchEvent: SearchEvent) =
-        sqlSessionTemplate.selectList<Event>("EVENT.selectListEventsByStauts", searchEvent)
+        sqlSessionTemplate.selectList<ExecutingEvent>("EVENT.selectListEventsByStauts", searchEvent)
 
     fun deleteEvent(id : Long)=
         sqlSessionTemplate.selectOne<Event>("EVENT.deleteEvent", id)

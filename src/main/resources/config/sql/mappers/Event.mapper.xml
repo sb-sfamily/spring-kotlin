@@ -35,14 +35,9 @@
         SELECT
             id,
             title,
-            operator_id,
             event_type,
             reg_date,
-            from_dt,
-            to_dt,
             description,
-            place_name,
-            place_addr,
             create_dt,
             update_dt,
             create_user_id,
@@ -57,14 +52,9 @@
         SELECT
             id,
             title,
-            operator_id,
             event_type,
             reg_date,
-            from_dt,
-            to_dt,
             description,
-            place_name,
-            place_addr,
             create_dt,
             update_dt,
             create_user_id,
@@ -72,7 +62,6 @@
         FROM
             event
         where title like CONCAT('%',CONCAT(#{title}, '%'))
-          and from_dt between #{fromFromDate} and #{fromToDate}
     </select>
 
 
@@ -80,19 +69,14 @@
         SELECT
         id,
         title,
+        event_serial_number,
         operator_id,
-        event_type,
         reg_date,
         from_dt,
         to_dt,
-        description,
         place_name,
-        place_addr,
-        create_dt,
-        update_dt,
-        create_user_id,
-        update_user_id
-        FROM event
+        place_addr
+        FROM executing_event
         where 1 = 1
         <if test="title != null and title != '' ">
             AND title like CONCAT('%',#{title}, '%')
@@ -115,26 +99,16 @@
         INTO
             event
         (title,
-         operator_id,
          event_type,
          reg_date,
-         from_dt,
-         to_dt,
          description,
-         place_name,
-         place_addr,
          create_dt,
          create_user_id)
         VALUES (
                    #{title},
-                   #{operatorId},
                    #{eventType},
                    #{regDate} ,
-                   #{fromDt},
-                   #{toDt},
                    #{description},
-                   #{placeName},
-                   #{placeAddr},
                    #{createDt},
                    1)
     </insert>
@@ -148,13 +122,8 @@
     <update id="updateEvent">
         UPDATE event
         SET title = #{title},
-            operator_id = #{operatorId},
             event_type = #{eventType},
-            from_dt = #{fromDt},
-            to_dt = #{toDt},
             description = #{description},
-            place_name = #{placeName},
-            place_addr = #{placeAddr},
             update_dt = #{updateDt},
             update_user_id = #{updateUserId}
         WHERE id = #{id};

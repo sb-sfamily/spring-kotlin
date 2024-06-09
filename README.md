@@ -9,4 +9,4 @@
 |멤버 추가|insertMember|/insert|Post|CustomInsert|멤버 추가|값을 알맞게 입력하여 멤버를 추가한다.|
 |멤버 검색|searchingMemeber|{id}|Get|{id}|조회된 멤버 상세내용|id를 가지고 멤버의 정보를 조회|
 |멤버 삭제|DeleteMember|{id}|Delete|{id}|멤버 삭제|아이디에 맞는 멤버의 정보를 삭제함|
-|멤버 업데이트|update|/update|Post|UpdateMember|` `멤버 업데이트|알맞은 내용을 적고 일치하는 id를 가진 멤버의 정보를 수정|
+|멤버 업데이트|update|/update|Post|UpdateMember|멤버 업데이트|알맞은 내용을 적고 일치하는 id를 가진 멤버의 정보를 수정|

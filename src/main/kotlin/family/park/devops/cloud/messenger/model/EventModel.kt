@@ -17,15 +17,8 @@ data class SearchEvent(
 data class UpdateEvent(
     var id: Long,
     var title: String,
-    var operatorId : Long,
     var eventType : String,
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
-    var fromDt : LocalDateTime,
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
-    var toDt : LocalDateTime,
     var description : String,
-    var placeName : String,
-    var placeAddr : String,
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
     var updateDt : LocalDateTime,
     var updateUserId : Long
@@ -34,17 +27,10 @@ data class UpdateEvent(
 
 data class InsertEvent(
     var title : String,
-    var operatorId : Long,
     var eventType : String,
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
     var regDate: LocalDateTime?,
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
-    var fromDt: LocalDateTime,
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
-    var toDt: LocalDateTime,
     var description: String,
-    var placeName : String,
-    var placeAddr : String,
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
     var createDt : LocalDateTime,
     var createUserId : Long
