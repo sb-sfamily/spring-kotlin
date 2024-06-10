@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ExecutingEvent">
+
+    <insert id="insertExecutingEvent">
+        INSERT INTO executing_event
+        (title,
+         event_serial_number,
+         operator_id,
+         reg_date,
+         from_dt,
+         to_dt,
+         place_name,
+         place_addr)
+        VALUES(#{title},
+               #{event_serial_number},
+               #{operator_id},
+               #{reg_date},
+               #{from_dt},
+               #{to_dt},
+               #{place_name},
+               #{place_addr});
+    </insert>
+
+
+</mapper>
