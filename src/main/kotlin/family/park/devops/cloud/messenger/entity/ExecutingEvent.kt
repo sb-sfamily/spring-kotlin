@@ -18,3 +18,17 @@ data class ExecutingEvent(
     var placeName : String,
     var placeAddr : String
 )
+
+data class InsertExecutingEvent(
+    var title : String,
+    var eventSerialNumber : Long,
+    var operatorId : Long,
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
+    var regDate : LocalDateTime,
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
+    var fromDt : LocalDateTime,
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
+    var toDt : LocalDateTime,
+    var placeName : String,
+    var placeAddr : String
+)

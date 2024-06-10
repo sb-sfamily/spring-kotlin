@@ -16,13 +16,13 @@
          place_name,
          place_addr)
         VALUES(#{title},
-               #{event_serial_number},
-               #{operator_id},
-               #{reg_date},
-               #{from_dt},
-               #{to_dt},
-               #{place_name},
-               #{place_addr});
+               #{eventSerialNumber},
+               #{operatorId},
+               #{regDate},
+               #{fromDt},
+               #{toDt},
+               #{placeName},
+               #{placeAddr});
     </insert>
 
 
