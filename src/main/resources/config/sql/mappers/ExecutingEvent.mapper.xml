@@ -26,4 +26,17 @@
     </insert>
 
 
+    <select id="selectingExcutingEventWithRegDate">
+        select regDate from executing_event as exec 
+        left join Event as ev on exec.regDate = ev.regDate
+        <if test="title != null and title != '' ">
+            AND title like CONCAT('%',#{title}, '%')
+        </if>
+        <choose>
+            <when test="statusOfEvent == 'ING'">
+                AND current_timestamp() between from_dt and to_dt
+        </choose>
+    </select>
+
+
 </mapper>
