@@ -10,12 +10,12 @@ data class ExecutingEvent(
     var eventSerialNumber : Long,
     var operatorId : Long,
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
-    var regDate : LocalDateTime,
+    var regDate : LocalDateTime ,
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
-    var fromDt : LocalDateTime,
+    var fromDt : LocalDateTime ,
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= DATETIME)
-    var toDt : LocalDateTime,
-    var placeName : String,
+    var toDt : LocalDateTime ,
+    var placeName : String ,
     var placeAddr : String
 )
 
