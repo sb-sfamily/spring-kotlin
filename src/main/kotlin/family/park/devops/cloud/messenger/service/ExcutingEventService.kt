@@ -1,17 +1,18 @@
 package family.park.devops.cloud.messenger.service
 
 import family.park.devops.cloud.messenger.entity.InsertExecutingEvent
-import family.park.devops.cloud.messenger.entity.SearchWithJoin
-import family.park.devops.cloud.messenger.repo.ExcutingEventRepo
+import family.park.devops.cloud.messenger.repo.ExecutingEventRepo
+import org.springframework.stereotype.Service
 
-class ExcuteEventService(
-    private val excuteEventRepo : ExcutingEventRepo,
-    repo : ExcutingEventRepo
+@Service
+class ExecuteEventService(
+    private val executeEventRepo : ExecutingEventRepo,
+    repo : ExecutingEventRepo
 ) {
 
-    fun insertExcutingEvent(event : InsertExecutingEvent)
-    =excuteEventRepo.insertsExtraEvents(event)
+    fun insertExecutingEvent(event : InsertExecutingEvent)
+    =executeEventRepo.insertsExtraEvents(event)
 
     fun searchWithJoin( id : Long )
-    =excuteEventRepo.serachingWithJoin(id)
+    =executeEventRepo.serachingWithJoin(id)
 }

@@ -26,8 +26,24 @@
     </insert>
 
 
-    <select id="selectingExcutingEventWithRegDate">
-        SELECT *
+    <select id="selectingExecutingEventWithRegDate" resultType="SearchWithJoin">
+        SELECT
+            ee.id,
+            ee.title,
+            ee.event_serial_number,
+            ee.operator_id,
+            ee.reg_date,
+            ee.from_dt,
+            ee.to_dt,
+            ee.place_name,
+            ee.place_addr,
+            e.event_type,
+            e.description,
+            e.create_dt,
+            e.update_dt,
+            e.create_user_id,
+            e.update_user_id,
+            e.status_of_event
         FROM executing_event ee
                  INNER JOIN event e ON ee.id = e.id
         WHERE ee.id = #{id};

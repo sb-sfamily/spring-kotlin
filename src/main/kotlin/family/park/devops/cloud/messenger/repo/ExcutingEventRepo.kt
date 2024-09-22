@@ -3,8 +3,11 @@ package family.park.devops.cloud.messenger.repo
 import family.park.devops.cloud.messenger.entity.InsertExecutingEvent
 import family.park.devops.cloud.messenger.entity.SearchWithJoin
 import org.mybatis.spring.SqlSessionTemplate
+import org.springframework.stereotype.Repository
 
-class ExcutingEventRepo(
+
+@Repository
+class ExecutingEventRepo(
     private val sqlSessionTemplate: SqlSessionTemplate
 ) {
 
@@ -12,5 +15,5 @@ class ExcutingEventRepo(
     = sqlSessionTemplate.insert("ExecutingEvent.insertExecutingEvent", inserting)
 
     fun serachingWithJoin( id : Long)
-    = sqlSessionTemplate.selectOne<SearchWithJoin>("ExecutingEvent.selectingExcutingEventWithRegDate", id)
+    = sqlSessionTemplate.selectOne<SearchWithJoin>("ExecutingEvent.selectingExecutingEventWithRegDate", id)
 }
