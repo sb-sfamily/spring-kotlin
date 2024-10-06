@@ -6,8 +6,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class ExecuteEventService(
-    private val executeEventRepo : ExecutingEventRepo,
-    repo : ExecutingEventRepo
+    private val executeEventRepo : ExecutingEventRepo
 ) {
 
     fun insertExecutingEvent(event : InsertExecutingEvent)

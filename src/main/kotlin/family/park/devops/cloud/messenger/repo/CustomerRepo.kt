@@ -20,5 +20,5 @@ class CustomersRepo(
         sqlSessionTemplate.selectOne<Customer>("COMMON.deleteMember", id)
 
     fun updateMemberById( updateMember : UpdatingMember)=
-        sqlSessionTemplate.update("COMMON.updateMember",updateMember)
+        sqlSessionTemplate.selectList<Customer>("COMMON.updateMember",updateMember)
 }
